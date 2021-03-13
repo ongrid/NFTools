@@ -66,12 +66,12 @@ def get_tokens(blocks_range):
                             uri = token.functions.tokenURI(t).call()
                             name = token.functions.name().call()
                             total_supply = token.functions.totalSupply().call()
-                            sp.clearln()
-                            print(f"{l.address} {name} supply={total_supply} uri={uri}")
-                            sp.message = f"Blk: {block_number} of {blocks_range[1]}. Found:{len(tokens)} "
-                            sp.next()
                             tokens[l.address] = True
                             contracts[l.address] = True
+                            print(f"{l.address} {name} supply={total_supply} uri={uri}")
+                            sp.message = f"Blk: {block_number} of {blocks_range[1]}. Found:{len(tokens)} "
+                            sp.start()
+                            sp.next()
                         except:
                             contracts[l.address] = False
 
